@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fan Membership Cards</title>
+<style>
+  :root {
+    --gold: #d4af37;
+    --gold-light: #f1e5ac;
+    --dark: #0a0a0a;
+    --card-bg: #1a1a1a;
+    --text: #f5f5f5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+  header {
+    text-align: center;
+    padding: 40px 20px 30px;
+  }
+  header h1 {
+    font-size: 2.8rem;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  header p { font-size: 1.2rem; color: #ccc; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+  }
+  .card.gold { border-color: #d4af37; }
+  .card.platinum { border-color: #c0c0c0; }
+  .card.exclusive {
+    border-color: #d4af37;
+    background: linear-gradient(145deg, #1a1a1a, #2a2210);
+  }
+  .card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--gold);
+  }
+  .card.platinum h2 { color: #e0e0e0; }
+  .price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 15px 0;
+    color: var(--gold-light);
+  }
+  .benefits {
+    text-align: left;
+    margin: 20px 0;
+    color: #ddd;
+    line-height: 1.6;
+  }
+  .benefits li { margin: 8px 0; }
+  .exclusive-note {
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid var(--gold);
+    padding: 15px;
+    margin: 30px 0;
+    border-radius: 8px;
+    font-size: 1.05rem;
+  }
+  .contact {
+    text-align: center;
+    background: var(--card-bg);
+    border: 1px solid var(--gold);
+    border-radius: 16px;
+    padding: 40px 20px;
+    margin-top: 20px;
+  }
+  .contact h3 { color: var(--gold); font-size: 1.8rem; margin-bottom: 15px; }
+  .email-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--gold), #b8860b);
+    color: #000;
+    padding: 14px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    transition: opacity 0.2s;
+  }
+  .email-btn:hover { opacity: 0.9; }
+  footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #777;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    header h1 { font-size: 2.2rem; }
+    .price { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Fan Membership Cards</h1>
+    <p>Choose your level and unlock exclusive access</p>
+  </header>
+
+  <div class="cards">
+    <div class="card gold">
+      <h2>Gold Membership</h2>
+      <div class="price">$600</div>
+      <ul class="benefits">
+        <li>Official Fan Card</li>
+        <li>Priority updates</li>
+        <li>Community access</li>
+      </ul>
+    </div>
+
+    <div class="card platinum">
+      <h2>Platinum Membership</h2>
+      <div class="price">$1,750</div>
+      <ul class="benefits">
+        <li>Everything in Gold</li>
+        <li>Enhanced privileges</li>
+        <li>Special recognition</li>
+      </ul>
+    </div>
+
+    <div class="card exclusive">
+      <h2>Exclusive Membership</h2>
+      <div class="price">$3,550</div>
+      <ul class="benefits">
+        <li>Everything in Platinum</li>
+        <li>Special fan bonuses</li>
+        <li>Meet anytime priority</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exclusive-note">
+    <strong>Exclusive Member Benefits:</strong><br>
+    As an Exclusive Member, you get special fan bonuses to meet me anytime and it will be easy before others. You have a chance to invite me to dinner, holidays, or events too.
+  </div>
+
+  <div class="contact">
+    <h3>Ready to Join?</h3>
+    <p>Email for details and payment instructions</p>
+    <a href="mailto:tom@hankx.onmicrosoft.com?subject=Fan%20Membership%20Inquiry" class="email-btn">Email tom@hankx.onmicrosoft.com</a>
+  </div>
+
+  <footer>
+    Fan Membership Cards • Limited availability
+  </footer>
+</div>
+</body>
+</html>
