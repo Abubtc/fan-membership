@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tom Hanks Fan Membership | Official Fan Cards</title>
+<meta name="description" content="Join the exclusive Tom Hanks Fan Membership. Choose from Gold, Platinum, or Exclusive tiers with unique benefits and priority access.">
+<style>
+  :root {
+    --gold: #d4af37;
+    --gold-light: #f1e5ac;
+    --gold-dark: #b8860b;
+    --platinum: #e8e8e8;
+    --platinum-dark: #a0a0a0;
+    --exclusive: #ffd700;
+    --dark: #0c0c0c;
+    --darker: #050505;
+    --card-bg: #161616;
+    --card-border: #2a2a2a;
+    --text: #f5f5f5;
+    --text-muted: #b0b0b0;
+    --accent: #d4af37;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(ellipse at center, #1a1200 0%, #0c0c0c 70%);
+    overflow: hidden;
+    padding: 40px 20px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 50%);
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+    color: #000;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #fff 0%, var(--gold-light) 50%, #fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+    color: #000;
+    padding: 16px 48px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+  }
+
+  /* Membership Cards */
+  .memberships {
+    padding: 100px 20px;
+    background: var(--darker);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: var(--gold);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 60px;
+    font-size: 1.1rem;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+  }
+
+  .card.popular {
+    border-color: var(--gold);
+    transform: scale(1.03);
+  }
+
+  .card.popular:hover {
+    transform: scale(1.03) translateY(-10px);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background: var(--gold);
+    color: #000;
+    padding: 6px 40px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transform: rotate(45deg);
+    letter-spacing: 1px;
+  }
+
+  .tier-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--gold);
+  }
+
+  .card.platinum .tier-name { color: var(--platinum); }
+  .card.exclusive .tier-name { color: var(--exclusive); }
+
+  .price {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 20px 0;
+    color: #fff;
+  }
+
+  .price span {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .benefits {
+    list-style: none;
+    text-align: left;
+    margin: 30px 0;
+  }
+
+  .benefits li {
+    padding: 12px 0;
+    border-bottom: 1px solid #2a2a2a;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .benefits li:last-child { border-bottom: none; }
+
+  .benefits li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .card-button {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 14px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+    margin-top: 10px;
+  }
+
+  .card-button:hover {
+    background: var(--gold);
+    color: #000;
+  }
+
+  .card.popular .card-button {
+    background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+    color: #000;
+    border: none;
+  }
+
+  /* Exclusive Note */
+  .exclusive-section {
+    max-width: 800px;
+    margin: 60px auto;
+    background: linear-gradient(145deg, #1a1408, #0f0c06);
+    border: 1px solid var(--gold);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .exclusive-section h3 {
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+
+  .exclusive-section p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+  }
+
+  /* Contact */
+  .contact {
+    padding: 100px 20px;
+    text-align: center;
+    background: radial-gradient(ellipse at bottom, #1a1200 0%, var(--dark) 70%);
+  }
+
+  .contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+
+  .contact p {
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    font-size: 1.1rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid #222;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .card.popular { transform: none; }
+    .card.popular:hover { transform: translateY(-10px); }
+    .price { font-size: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">Limited Availability</div>
+      <h1>Tom Hanks<br>Fan Membership</h1>
+      <p>Official fan cards — choose your level of access and exclusive benefits with the legendary actor.</p>
+      <a href="#memberships" class="cta-button">View Membership Tiers</a>
+    </div>
+  </section>
+
+  <!-- Memberships -->
+  <section class="memberships" id="memberships">
+    <h2 class="section-title">Choose Your Membership</h2>
+    <p class="section-subtitle">Select the tier that matches your level of fandom</p>
+
+    <div class="cards-grid">
+      <!-- Gold -->
+      <div class="card">
+        <div class="tier-name">Gold</div>
+        <div class="price">$600</div>
+        <ul class="benefits">
+          <li>Official Fan Card</li>
+          <li>Priority updates</li>
+          <li>Community access</li>
+        </ul>
+        <a href="mailto:tom@hankx.onmicrosoft.com?subject=Gold%20Membership%20Inquiry" class="card-button">Join Gold</a>
+      </div>
+
+      <!-- Platinum -->
+      <div class="card popular">
+        <div class="popular-badge">Most Popular</div>
+        <div class="tier-name">Platinum</div>
+        <div class="price">$1,750</div>
+        <ul class="benefits">
+          <li>Everything in Gold</li>
+          <li>Enhanced privileges</li>
+          <li>Special recognition</li>
+        </ul>
+        <a href="mailto:tom@hankx.onmicrosoft.com?subject=Platinum%20Membership%20Inquiry" class="card-button">Join Platinum</a>
+      </div>
+
+      <!-- Exclusive -->
+      <div class="card">
+        <div class="tier-name">Exclusive</div>
+        <div class="price">$3,550</div>
+        <ul class="benefits">
+          <li>Everything in Platinum</li>
+          <li>Special fan bonuses</li>
+          <li>Meet anytime priority</li>
+        </ul>
+        <a href="mailto:tom@hankx.onmicrosoft.com?subject=Exclusive%20Membership%20Inquiry" class="card-button">Join Exclusive</a>
+      </div>
+    </div>
+
+    <div class="exclusive-section">
+      <h3>Exclusive Member Benefits</h3>
+      <p>As an Exclusive Member, you get special fan bonuses to meet Tom Hanks anytime and it will be easy before others. You have a chance to invite him to dinner, holidays, or events too.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <h2>Ready to Join?</h2>
+    <p>Email for details and payment instructions</p>
+    <a href="mailto:tom@hankx.onmicrosoft.com?subject=Tom%20Hanks%20Fan%20Membership%20Inquiry" class="cta-button">Email tom@hankx.onmicrosoft.com</a>
+  </section>
+
+  <footer>
+    <p>Tom Hanks Fan Membership Cards • Limited availability</p>
+    <p style="margin-top: 8px; font-size: 0.8rem;">This is a fan-created project. Not officially affiliated with Tom Hanks.</p>
+  </footer>
+
+</body>
+</html>
